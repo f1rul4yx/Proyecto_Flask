@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Biblioteca{% endblock %}
+
+{% block content %}
+<section class="post">
+    <header class="major">
+        <h1>Bienvenidos a la<br />
+		Biblioteca</h1>
+        <p>Explora nuestro catálogo de libros y encuentra tu próxima lectura.</p>
+    </header>
+    <div class="image main">
+        <a href="{{ url_for('libros') }}">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logotipo de la Biblioteca">
+        </a>
+    </div>
+</section>
+{% endblock %}

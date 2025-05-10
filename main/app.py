@@ -12,12 +12,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/generic')
-def generic():
-    return render_template('generic.html')
-
-@app.route('/elements')
-def elements():
-    return render_template('elements.html')
+@app.route('/libros')
+def libros():
+    return render_template('libros.html')
 
 app.run("0.0.0.0",5000,debug=True)
