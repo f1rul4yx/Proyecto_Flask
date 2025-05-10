@@ -1,13 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, abort
 import json
 
 app = Flask(__name__)
+
+
 
 # FUNCIONES
 
 # Cargar JSON
 with open('static/libros.json') as archivo:
-    libros = json.load(archivo)
+    all_libros = json.load(archivo)
+
+
 
 # RUTAS
 
@@ -21,6 +25,13 @@ def libros():
 
 @app.route('/listalibros', methods=['POST'])
 def listalibros():
-    return render_template('listalibros.html')
+    consulta = request.form.get('titulo', '')
+    libros = []
+    for libro in all_libros:
+        if not consulta or libro['titulo'].lower().startswith(consulta.lower()):
+            libros.append(libro)
+    return render_template('listalibros.html', libros=libros)
+
+
 
 app.run("0.0.0.0",5000,debug=True)
