@@ -14,6 +14,7 @@
             <tr>
                 <th>Título</th>
                 <th>Autor</th>
+                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,7 @@
             <tr>
                 <td>{{ libro.titulo }}</td>
                 <td>{{ libro.autor }}</td>
+                <td><a href="{{ url_for('libro', id=libro.id) }}" class="button">Detalle</a></td>
             </tr>
             {% endfor %}
         </tbody>

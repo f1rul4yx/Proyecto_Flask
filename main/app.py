@@ -32,6 +32,17 @@ def listalibros():
             libros.append(libro)
     return render_template('listalibros.html', libros=libros)
 
+@app.route('/libro/<int:id>')
+def libro(id):
+    libro_encontrado = None
+    for libro in all_libros:
+        if libro['id'] == id:
+            libro_encontrado = libro
+            
+    if libro_encontrado is None:
+        abort(404)
+    return render_template('libro.html', libro=libro_encontrado)
+
 
 
 app.run("0.0.0.0",5000,debug=True)
