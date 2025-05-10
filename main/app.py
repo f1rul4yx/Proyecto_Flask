@@ -15,8 +15,12 @@ with open('static/libros.json') as archivo:
 def index():
     return render_template('index.html')
 
-@app.route('/libros')
+@app.route('/libros', methods=['GET'])
 def libros():
     return render_template('libros.html')
+
+@app.route('/listalibros', methods=['POST'])
+def listalibros():
+    return render_template('listalibros.html')
 
 app.run("0.0.0.0",5000,debug=True)
