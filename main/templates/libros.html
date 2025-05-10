@@ -8,7 +8,7 @@
         <h1>Buscar Libros</h1>
         <p>Ingresa el titulo de un libro para encontrar coincidencias en nuestro catálogo.</p>
     </header>
-    <form action="{{ url_for('listalibros') }}" method="post">
+    <form action="{{ url_for('libros') }}" method="post">
         <div class="fields">
             <div class="field">
                 <label for="titulo">Título</label>
@@ -19,5 +19,30 @@
             <li><input type="submit" value="Buscar"></li>
         </ul>
     </form>
+    {% if busqueda %}
+    {% if libros %}
+    <h2>Resultados de la Búsqueda</h2>
+    <table class="alt">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for libro in libros %}
+            <tr>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.autor }}</td>
+                <td><a href="{{ url_for('libro', id=libro.id) }}" class="button">Detalle</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No se encontraron libros.</p>
+    {% endif %}
+    {% endif %}
 </section>
 {% endblock %}
