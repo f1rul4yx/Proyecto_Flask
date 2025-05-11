@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="{{ url_for('index') }}" class="logo">Biblioteca</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="{{ url_for('index') }}">Inicio</a></li>
+							<li><a href="{{ url_for('libros') }}">Libros</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://youtube.com/@f1rul4yx" target="_blank" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+							<li><a href="https://twitch.tv/f1rul4yx" target="_blank" class="icon brands fa-twitch"><span class="label">Twitch</span></a></li>
+							<li><a href="https://instagram.com/diegoovargas03" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://github.com/f1rul4yx" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+                        {% block content %}
+                        {% endblock %}
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Dirección</h3>
+								<p>C/Las Botijas, 10<br />
+								Dos Hermanas, Sevilla<br />
+                                CP: 41700</p>
+							</section>
+							<section>
+								<h3>Teléfono</h3>
+								<p><a href="tel:+34954723871">954 72 38 71</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:informatica@gonzalonazareno.org">informatica@gonzalonazareno.org</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+                                    <li><a href="https://youtube.com/@f1rul4yx" target="_blank" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+                                    <li><a href="https://twitch.tv/f1rul4yx" target="_blank" class="icon brands fa-twitch"><span class="label">Twitch</span></a></li>
+                                    <li><a href="https://instagram.com/diegoovargas03" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                    <li><a href="https://github.com/f1rul4yx" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Diego Vargas</li><li>Todos los derechos reservados</li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+	</body>
+</html>
