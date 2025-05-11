@@ -45,7 +45,7 @@ python3 app.py
 ## Despliegue
 
 - **Plataforma usada**: Railway
-- **URL de la web desplegada**: web-production-92b4.up.railway.app
+- [**URL de la web desplegada**](web-production-92b4.up.railway.app)
 - **Pasos para desplegar**:
   1. Instalar dependencias: `pip install gunicorn`.
   2. Crear archivo Procfile con el siguiente contenido: `web: gunicorn app:app`.
