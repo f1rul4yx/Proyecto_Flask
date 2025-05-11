@@ -19,7 +19,7 @@
                 <select name="genero" id="genero">
                     <option value="">Todos los géneros</option>
                     {% for genero in generos %}
-                    <option value="{{ genero }}">{{ genero }}</option>
+                    <option value="{{ genero }}" {% if genero == genero_seleccionado %}selected{% endif %}>{{ genero }}</option>
                     {% endfor %}
                 </select>
             </div>
