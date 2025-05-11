@@ -6,13 +6,22 @@
 <section class="post">
     <header class="major">
         <h1>Buscar Libros</h1>
-        <p>Ingresa el titulo de un libro para encontrar coincidencias en nuestro catálogo.</p>
+        <p>Ingresa el título de un libro y/o selecciona un género para encontrar coincidencias en nuestro catálogo.</p>
     </header>
     <form action="{{ url_for('libros') }}" method="post">
         <div class="fields">
             <div class="field">
                 <label for="titulo">Título</label>
                 <input type="text" name="titulo" id="titulo" value="{{ consulta }}" placeholder="Ej: Cien años de soledad">
+            </div>
+            <div class="field">
+                <label for="genero">Género</label>
+                <select name="genero" id="genero">
+                    <option value="">Todos los géneros</option>
+                    {% for genero in generos %}
+                    <option value="{{ genero }}">{{ genero }}</option>
+                    {% endfor %}
+                </select>
             </div>
         </div>
         <ul class="actions">

@@ -21,16 +21,38 @@ def index():
 
 @app.route('/libros', methods=['GET', 'POST'])
 def libros():
+    # Extraer géneros únicos
+    generos = []
+    for libro in all_libros:
+        if libro['genero'] not in generos:
+            generos.append(libro['genero'])
+    generos.sort()  # Ordenar los géneros alfabéticamente
+    
     libros = []
     consulta = ''
     busqueda = False
     if request.method == 'POST':
         busqueda = True
         consulta = request.form.get('titulo', '')
+        genero = request.form.get('genero', '')
         for libro in all_libros:
-            if not consulta or libro['titulo'].lower().startswith(consulta.lower()):
+            # Verificar coincidencia con el título
+            coincide_titulo = True
+            if consulta:  # Si hay una consulta, verificar si está en el título
+                if not libro['titulo'].lower().startswith(consulta.lower()):
+                    coincide_titulo = False
+            
+            # Verificar coincidencia con el género
+            coincide_genero = True
+            if genero:  # Si hay un género seleccionado, verificar si coincide
+                if libro['genero'] != genero:
+                    coincide_genero = False
+            
+            # Añadir el libro si coincide con ambos criterios
+            if coincide_titulo and coincide_genero:
                 libros.append(libro)
-    return render_template('libros.html', libros=libros, consulta=consulta, busqueda=busqueda)
+    
+    return render_template('libros.html', libros=libros, consulta=consulta, generos=generos, busqueda=busqueda)
 
 @app.route('/libro/<int:id>')
 def libro(id):
